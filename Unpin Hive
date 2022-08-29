@@ -1,0 +1,5 @@
+REG LOAD HKEY_Users\Unpin "C:\Users\Default\NTUSER.DAT"
+New-PSDrive HKU Registry HKEY_Users
+New-Item -Path "HKU:\Unpin\SOFTWARE\Microsoft\Windows\CurrentVersion" -name "RunOnce"
+New-ItemProperty -Path "HKU:\Unpin\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" -Name "Unpin" -Value "C:\leapfrog_management\unpinning.cmd" -PropertyType "String"
+Reg unload Hkey_Users\Unpin
