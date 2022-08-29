@@ -1,0 +1,13 @@
+$value  = get-wmiobject -class win32_bios | select manufacturer
+
+if ( $value -like '*lenovo*')
+{
+	[system.Diagnostics.Process]::Start("chrome","https://download.lenovo.com/pccbbs/thinkvantage_en/system_update_5.07.0131.exe")
+}
+elseif ($value -like '*dell*')
+{
+	[system.Diagnostics.Process]::Start("chrome","https://dl.dell.com/FOLDER07870027M/1/Dell-Command-Update-Windows-Universal-Application_PWD0M_WIN_4.4.0_A00.EXE")
+}
+elseif ($value -like '*hp*')
+{
+	[system.Diagnostics.Process]::Start("chrome","https://ftp.hp.com/pub/softpaq/sp114001-114500/sp114036.exe")
